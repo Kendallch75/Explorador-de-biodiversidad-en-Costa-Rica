@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  background: #020b09;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #020b09;
+  color: #e2e8f0;
+}
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell {
+  background-image: radial-gradient(ellipse at 75% -12%, rgba(5, 150, 105, .13), transparent 42%),
+    radial-gradient(ellipse at 0% 40%, rgba(8, 47, 73, .12), transparent 35%);
+}
+
+.app-header { box-shadow: 0 1px 0 rgba(148, 163, 184, .03); }
+
+.workspace-intro { box-shadow: inset 0 1px 0 rgba(167, 243, 208, .04), 0 16px 42px rgba(0, 0, 0, .12); }
+
+.metric-chip {
+  min-width: 94px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid rgba(71, 85, 105, .55);
+  border-radius: 12px;
+  background: rgba(2, 6, 23, .38);
+  padding: 9px 12px;
+}
+.metric-chip span { color: #94a3b8; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
+.metric-chip strong { color: #f8fafc; font-size: 18px; line-height: 1; font-variant-numeric: tabular-nums; }
+.metric-chip small { color: #6ee7b7; font-size: 11px; font-weight: 500; }
+
+aside > form, aside > div { box-shadow: 0 8px 24px rgba(0, 0, 0, .12); }
+aside label { letter-spacing: .015em; }
+input, select {
+  transition: border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
+}
+input:focus, select:focus {
+  border-color: #34d399 !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, .12);
+}
+button { transition: color .16s ease, background-color .16s ease, border-color .16s ease, transform .16s ease; }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 2px solid #34d399; outline-offset: 2px; }
+
+.tab-strip button { min-height: 40px; }
+table { border-collapse: separate; border-spacing: 0; }
+thead th { position: sticky; top: 0; z-index: 1; }
+tbody tr { transition: background-color .14s ease; }
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border-radius: 0.75rem;
+  z-index: 1;
+  background: #dbe7df;
+}
+
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: rgba(2, 6, 23, .35); }
+::-webkit-scrollbar-thumb { background: #334155; border: 2px solid #0f172a; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+@media (max-width: 640px) {
+  .metric-chip { min-width: 82px; padding: 8px 10px; }
+  .workspace-intro { padding: 18px; }
+}

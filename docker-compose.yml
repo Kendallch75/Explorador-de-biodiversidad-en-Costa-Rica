@@ -1,0 +1,21 @@
+services:
+  solr:
+    build:
+      context: ./solr
+      dockerfile: Dockerfile
+    container_name: bd2_solr
+    ports:
+      - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - insectos_asp
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8983/solr/insectos_asp/admin/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  solr_data:
